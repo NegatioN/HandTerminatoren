@@ -1,0 +1,140 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:onClick="clickBack"
+    tools:context="no.mesan.handterminator.CardActivity_">
+
+    <!-- Framlayout for holding Object-fragments -->
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:elevation="6dp"
+        android:background="#00000000" >
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="550dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/fragment_frame_space"
+            android:layout_marginRight="@dimen/fragment_frame_space"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:elevation="15dp"
+            android:transitionName="login"
+            card_view:cardCornerRadius="2dp"
+            card_view:cardElevation="15dp"
+            android:theme="@style/AppTheme">
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/superWhite">
+
+                <include
+                    android:id="@+id/package_toolbar"
+                    layout="@layout/toolbar_deviation"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"></include>
+
+                <LinearLayout
+                    android:id="@+id/divider"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/package_toolbar"
+                    android:background="@color/white"
+                    android:orientation="horizontal"></LinearLayout>
+
+                <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_card"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:padding="10dp"
+                    card_view:cardBackgroundColor="@color/superWhite"
+                    card_view:cardCornerRadius="4dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/divider"
+                        android:layout_margin="10dp"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/deviation_type"
+                            android:textSize="@dimen/subhead_size"
+                            android:textColor="@color/black"
+                            android:paddingStart="@dimen/marginEnd"
+                            android:layout_marginBottom="15dp"
+                            android:text="Kategori:"/>
+                        <Spinner
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/deviation_spinner"
+                            android:layout_alignBaseline="@id/deviation_type"
+                            android:paddingEnd="@dimen/marginEnd"
+                            android:layout_alignParentRight="true"/>
+                        <!-- message field -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/deviation_message"
+                            android:layout_below="@id/deviation_type"
+                            android:textSize="@dimen/subhead_size"
+                            android:textColor="@color/black"
+                            android:paddingStart="@dimen/marginEnd"
+                            android:text="Kommentar:"/>
+                        <EditText
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="4"
+                            android:maxLength="180"
+                            android:lines="4"
+                            android:id="@+id/deviation_message_field"
+                            android:textSize="@dimen/subhead_size"
+                            android:paddingTop="5dp"
+                            android:layout_gravity="top|left"
+                            android:gravity="top|left"
+                            android:inputType="textMultiLine"
+                            android:ems="10"
+                            android:layout_below="@id/deviation_message"
+                            android:background="@drawable/background_border"
+                            android:layout_alignParentRight="true"
+                            android:paddingStart="@dimen/marginEnd"
+                            android:layout_margin="@dimen/fragment_frame_space"
+                            android:hint="@string/placeholder"/>
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/subhead_size"
+                    android:id="@+id/deviationButton"
+                    android:onClick="deviationButtonClicked"
+                    android:text="@string/dialog_deviation_positive"
+                    android:layout_below="@id/profile_card"
+                    android:layout_alignParentRight="true"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </ScrollView>
+</RelativeLayout>

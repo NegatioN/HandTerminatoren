@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/head_profile"
+    android:layout_width="240dp"
+    android:layout_height="160dp"
+    android:background="@drawable/postnord_legend"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/iv_profile"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/ripple_oval_white"
+        android:clickable="true"
+        android:src="@drawable/img_tore_tang" />
+
+    <TextView
+        android:id="@+id/profile_name"
+        style="@style/TitleStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/iv_profile"
+        android:text="@string/tore_tang"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

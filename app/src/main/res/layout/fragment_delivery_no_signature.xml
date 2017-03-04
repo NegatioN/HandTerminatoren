@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundWhite"
+    tools:context="no.mesan.handterminator.fragment.DeliveryNoSignatureFragment">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/no_signature_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fragment_frame_space"
+        card_view:cardBackgroundColor="@color/superWhite"
+        card_view:cardCornerRadius="4dp"
+        card_view:contentPadding="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/no_signature_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Levering uten signatur:"
+                android:textColor="@color/primary"
+                android:textSize="@dimen/big_head" />
+
+            <!-- Comments field-->
+            <TextView
+                android:id="@+id/no_signature_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/no_signature_title"
+                android:layout_marginBottom="60dp"
+                android:paddingStart="@dimen/marginEnd"
+                android:paddingTop="20dp"
+                android:text="Kommentar:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/subhead_size" />
+
+            <EditText
+                android:id="@+id/no_signature_message_field"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/no_signature_message"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="start"
+                android:layout_margin="@dimen/fragment_frame_space"
+                android:layout_toRightOf="@id/no_signature_message"
+                android:background="@drawable/background_border"
+                android:ems="10"
+                android:gravity="top|left"
+                android:hint="@string/placeholder"
+                android:inputType="textMultiLine"
+                android:lines="4"
+                android:maxLines="4"
+                android:maxLength="180"
+                android:paddingStart="@dimen/marginEnd"
+                android:textSize="@dimen/subhead_size" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

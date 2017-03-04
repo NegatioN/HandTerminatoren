@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/route_list_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <!-- The list which is "stuck" on this screen, on the left side -->
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_route_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/fragment_frame_space"
+        android:layout_weight="0.3"
+        card_view:cardBackgroundColor="@color/superWhite"
+        card_view:cardCornerRadius="4dp"
+        card_view:contentPadding="4dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerRouteList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
+
+    </android.support.v7.widget.CardView>
+
+    <!-- FrameLayout(as a CardView),
+          this is where you change between fragments-->
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_route_details"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/fragment_frame_space"
+        android:layout_marginEnd="@dimen/fragment_frame_space"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="@dimen/fragment_frame_space"
+        android:layout_weight="0.7"
+        card_view:cardBackgroundColor="@color/backgroundWhite"
+        card_view:cardCornerRadius="4dp"
+        card_view:contentPadding="4dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <!-- Info-view for the route -->
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/route_list_frame_info"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="3dp"
+                android:layout_weight="0.37"
+                card_view:cardBackgroundColor="@color/superWhite"
+                card_view:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:padding="10dp"
+                    card_view:cardBackgroundColor="@color/superWhite">
+
+                    <RelativeLayout
+                        android:id="@+id/route_info"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <!--&lt;!&ndash; Stamp &ndash;&gt;-->
+                        <!--<ImageView-->
+                            <!--android:id="@+id/routeStamp"-->
+                            <!--android:layout_width="150dp"-->
+                            <!--android:layout_height="150dp"-->
+                            <!--android:layout_alignParentRight="true"-->
+                            <!--android:src="@drawable/img_stamp"-->
+                            <!--android:visibility="invisible" />-->
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- Header -->
+                            <TextView
+                                android:id="@+id/header_route_info"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/marginHead"
+                                android:text="@string/route_information"
+                                android:textColor="@color/primary"
+                                android:textSize="@dimen/big_head" />
+
+                            <!-- Info -->
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/marginEnd"
+                                android:layout_marginStart="@dimen/marginStart"
+                                android:orientation="vertical">
+
+                                <!-- Id field -->
+                                <TextView
+                                    android:id="@+id/route_id"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingRight="8dp"
+                                    android:paddingTop="5dp"
+                                    android:text="@string/field_route_number"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/subhead_size" />
+
+                                <TextView
+                                    android:id="@+id/routeId"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignBaseline="@id/route_id"
+                                    android:layout_toRightOf="@id/route_id"
+                                    android:paddingTop="5dp"
+                                    android:text="@string/placeholder" />
+
+                                <!-- Type field -->
+                                <TextView
+                                    android:id="@+id/route_status"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/route_id"
+                                    android:paddingTop="5dp"
+                                    android:text="@string/route_status"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/subhead_size" />
+
+                                <TextView
+                                    android:id="@+id/route_status_field"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignBaseline="@id/route_status"
+                                    android:layout_alignLeft="@id/routeId"
+                                    android:paddingTop="5dp"
+                                    android:text="@string/placeholder" />
+
+                                <!-- Type field -->
+                                <TextView
+                                    android:id="@+id/route_deliveryCount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/route_status"
+                                    android:paddingTop="5dp"
+                                    android:text="@string/field_deliveries"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/subhead_size" />
+
+                                <TextView
+                                    android:id="@+id/routeDeliveries"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignBaseline="@id/route_deliveryCount"
+                                    android:layout_alignLeft="@id/routeId"
+                                    android:paddingTop="5dp"
+                                    android:text="@string/placeholder" />
+
+                                <!-- Type field -->
+                                <TextView
+                                    android:id="@+id/route_pickupCount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/route_deliveryCount"
+                                    android:paddingTop="5dp"
+                                    android:text="@string/field_pickups"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/subhead_size" />
+
+                                <TextView
+                                    android:id="@+id/routePickups"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignBaseline="@id/route_pickupCount"
+                                    android:layout_alignLeft="@id/routeId"
+                                    android:paddingTop="5dp"
+                                    android:text="@string/placeholder" />
+
+                                <!-- Address field -->
+                                <TextView
+                                    android:id="@+id/route_distance"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/route_pickupCount"
+                                    android:paddingTop="5dp"
+                                    android:text="@string/field_length"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/subhead_size" />
+
+                                <TextView
+                                    android:id="@+id/routeDistance"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignBaseline="@id/route_distance"
+                                    android:layout_alignLeft="@id/routeId"
+                                    android:paddingTop="5dp"
+                                    android:text="@string/placeholder" />
+
+                                <!-- Extras field. "pickuptime"-->
+                                <TextView
+                                    android:id="@+id/route_time"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/route_distance"
+                                    android:paddingTop="5dp"
+                                    android:text="@string/field_time"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/subhead_size" />
+
+                                <TextView
+                                    android:id="@+id/routeTime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignBaseline="@id/route_time"
+                                    android:layout_alignLeft="@id/routeId"
+                                    android:paddingTop="5dp"
+                                    android:text="@string/placeholder" />
+
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/placholder_route_info"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+
+                        <TextView
+                            style="@style/TitleStyle"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:gravity="center"
+                            android:text="@string/pick_route" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!-- Map-view for the route -->
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/route_list_frame_map"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="3dp"
+                android:layout_weight="0.63"
+                card_view:cardBackgroundColor="@color/superWhite"
+                card_view:cardCornerRadius="4dp">
+
+                <FrameLayout
+                    android:id="@+id/fragment_map_route_list"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" />
+
+
+                <!-- Stamp -->
+                <ImageView
+                    android:id="@+id/routeStamp"
+                    android:padding="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/img_stamp"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/continueButton"
+                    android:layout_width="@dimen/round_button_diameter"
+                    android:layout_height="@dimen/round_button_diameter"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="@dimen/add_button_margin"
+                    android:layout_marginEnd="@dimen/add_button_margin"
+                    android:background="@drawable/ripple_oval"
+                    android:elevation="@dimen/shadow_lv2"
+                    android:onClick="nextClicked"
+                    android:src="@drawable/ic_arrow_forward_white_48dp"
+                    android:tint="@color/white"
+                    android:transitionName="buttonTrans"
+                    android:visibility="gone" />
+
+                <no.mesan.handterminator.view.ProgressWheel
+                    android:id="@+id/progress_wheel_route"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:visibility="visible" />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

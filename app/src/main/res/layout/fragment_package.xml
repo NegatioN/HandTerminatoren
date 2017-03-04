@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout for a package-fragment-->
+<!--Color must be set on layout within Cardview-->
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/fragment_w_toolbar_top"
+    android:layout_marginLeft="@dimen/fragment_frame_space"
+    android:layout_marginRight="@dimen/fragment_frame_space"
+    android:layout_marginBottom="@dimen/fragment_frame_space"
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="15dp"
+    android:elevation="15dp">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/superWhite">
+        <include
+            android:layout_alignParentTop="true"
+            android:id="@+id/package_toolbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/toolbar_package"></include>
+        <ImageView
+            android:id="@+id/image"
+            android:layout_below="@id/package_toolbar"
+            android:transitionName="image"
+            android:src="@drawable/ic_delete_tinted"
+            android:layout_width="500dp"
+            android:layout_height="300dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/divider"
+            android:layout_below="@id/image"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            ></LinearLayout>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_card"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/divider"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:clickable="true"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardBackgroundColor="@color/superWhite">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fragment_frame_space">
+
+                <LinearLayout
+                    android:id="@+id/task_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/header_task_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/marginHead"
+                        android:textSize="@dimen/head_size"
+                        android:textColor="@color/primary"
+                        android:text="@string/taskinfo"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="@dimen/marginStart"
+                        android:layout_marginEnd="@dimen/marginEnd"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!-- Id field -->
+                        <TextView
+                            android:id="@+id/task_id"
+                            android:text="@string/field_task_id"
+                            android:textSize="@dimen/subhead_size"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"/>
+                        <TextView
+                            android:id="@+id/route_id_field"
+                            android:text="@string/placeholder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:paddingTop="5dp"
+                            android:layout_alignBaseline="@id/task_id"/>
+
+                        <!-- Type field -->
+                        <TextView
+                            android:id="@+id/task_type"
+                            android:text="@string/field_task_type"
+                            android:textSize="@dimen/subhead_size"
+                            android:textColor="@color/black"
+                            android:layout_below="@id/task_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"/>
+                        <TextView
+                            android:id="@+id/task_type_field"
+                            android:text="@string/placeholder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:paddingTop="5dp"
+                            android:layout_alignBaseline="@id/task_type"/>
+
+                        <!-- Address field -->
+                        <TextView
+                            android:id="@+id/task_address"
+                            android:text="@string/field_address"
+                            android:textSize="@dimen/subhead_size"
+                            android:textColor="@color/black"
+                            android:layout_below="@id/task_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"/>
+                        <TextView
+                            android:id="@+id/task_address_field"
+                            android:text="@string/placeholder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:paddingTop="5dp"
+                            android:layout_alignBaseline="@id/task_address"/>
+
+                        <!-- Extras field. "pickuptime"-->
+                        <TextView
+                            android:id="@+id/task_timeslot"
+                            android:text="@string/field_timeslot"
+                            android:textSize="@dimen/subhead_size"
+                            android:textColor="@color/black"
+                            android:layout_below="@id/task_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5dp"/>
+                        <TextView
+                            android:id="@+id/task_timeslot_field"
+                            android:text="@string/placeholder"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:paddingTop="5dp"
+                            android:layout_alignBaseline="@id/task_timeslot"/>
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/task_info"
+                    android:weightSum="1.0">
+
+                    <LinearLayout
+                        android:id="@+id/sender_info"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:paddingTop="5dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/header_sender_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/head_size"
+                            android:layout_marginLeft="@dimen/marginHead"
+                            android:textColor="@color/primary"
+                            android:text="@string/field_sender"/>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_marginStart="@dimen/marginStart"
+                            android:layout_marginEnd="@dimen/marginEnd"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- Name field -->
+                            <TextView
+                                android:id="@+id/sender_name"
+                                android:text="@string/field_name"
+                                android:textSize="@dimen/subhead_size"
+                                android:textColor="@color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"/>
+                            <TextView
+                                android:id="@+id/sender_name_field"
+                                android:text="@string/placeholder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:paddingTop="5dp"
+                                android:layout_alignBaseline="@id/sender_name"/>
+
+                            <!-- Phone field -->
+                            <TextView
+                                android:id="@+id/sender_phone"
+                                android:text="@string/field_phone"
+                                android:textSize="@dimen/subhead_size"
+                                android:textColor="@color/black"
+                                android:layout_below="@id/sender_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"/>
+                            <TextView
+                                android:id="@+id/sender_phone_field"
+                                android:text="@string/placeholder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:paddingTop="5dp"
+                                android:layout_alignBaseline="@id/sender_phone"/>
+
+                            <!-- Address field -->
+                            <TextView
+                                android:id="@+id/sender_address"
+                                android:text="@string/field_address"
+                                android:textSize="@dimen/subhead_size"
+                                android:textColor="@color/black"
+                                android:layout_below="@id/sender_phone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"/>
+                            <TextView
+                                android:id="@+id/sender_address_field"
+                                android:text="@string/placeholder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:paddingTop="5dp"
+                                android:layout_alignBaseline="@id/sender_address"/>
+
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/receiver_info"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:paddingTop="5dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/header_receiver_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/head_size"
+                            android:layout_marginLeft="@dimen/marginHead"
+                            android:textColor="@color/primary"
+                            android:text="@string/receiver"/>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_marginStart="@dimen/marginStart"
+                            android:layout_marginEnd="@dimen/marginEnd"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- Name field -->
+                            <TextView
+                                android:id="@+id/receiver_name"
+                                android:text="@string/field_name"
+                                android:textSize="@dimen/subhead_size"
+                                android:textColor="@color/black"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"/>
+                            <TextView
+                                android:id="@+id/receiver_name_field"
+                                android:text="@string/placeholder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:paddingTop="5dp"
+                                android:layout_alignBaseline="@id/receiver_name"/>
+
+                            <!-- Phone field -->
+                            <TextView
+                                android:id="@+id/receiver_phone"
+                                android:text="@string/field_phone"
+                                android:textSize="@dimen/subhead_size"
+                                android:textColor="@color/black"
+                                android:layout_below="@id/receiver_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"/>
+                            <TextView
+                                android:id="@+id/receiver_phone_field"
+                                android:text="@string/placeholder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:paddingTop="5dp"
+                                android:layout_alignBaseline="@id/receiver_phone"/>
+
+                            <!-- Address field -->
+                            <TextView
+                                android:id="@+id/receiver_address"
+                                android:text="@string/field_address"
+                                android:textSize="@dimen/subhead_size"
+                                android:textColor="@color/black"
+                                android:layout_below="@id/receiver_phone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"/>
+                            <TextView
+                                android:id="@+id/_address_field"
+                                android:text="@string/placeholder"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:paddingTop="5dp"
+                                android:layout_alignBaseline="@id/receiver_address"/>
+
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_below="@id/profile_card"
+            android:id="@+id/layout_recycler"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="start"
+            android:background="@color/white"
+            android:clickable="true"
+            >
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

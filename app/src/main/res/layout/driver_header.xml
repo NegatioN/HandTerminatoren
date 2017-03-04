@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/head_profile">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="#F6F6F6">
+
+        <TextView
+            android:id="@+id/driver_name"
+            android:layout_marginStart="@dimen/marginEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/field_name"
+            android:paddingLeft="5dp"
+            android:textSize="@dimen/list_size" />
+
+        <TextView
+            android:id="@+id/driver_distance"
+            android:layout_marginStart="@dimen/marginEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Avstand:"
+            android:layout_alignParentRight="true"
+            android:layout_alignBaseline="@id/driver_name"
+            android:paddingRight="10dp"
+            android:textSize="@dimen/list_size" />
+
+        <TextView
+            android:id="@+id/driver_number"
+            android:layout_marginStart="@dimen/marginEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/driver_name"
+            android:layout_toLeftOf="@id/driver_distance"
+            android:text="@string/field_number"
+            android:paddingRight="5dp"
+            android:textSize="@dimen/list_size" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

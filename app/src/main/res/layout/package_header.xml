@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/head_profile">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="#F6F6F6">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/primary"
+            android:text="@string/package_number"
+            android:layout_marginBottom="5dp"
+            android:textSize="20sp"
+            android:id="@+id/package_number"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary"
+            android:layout_alignParentEnd="true"
+            android:textSize="20sp"
+            android:layout_alignBaseline="@id/package_number"
+            android:id="@+id/package_height"
+            android:text="@string/height"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary"
+            android:layout_marginRight="90dp"
+            android:layout_alignBaseline="@id/package_number"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@id/package_height"
+            android:id="@+id/package_width"
+            android:text="@string/width"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary"
+            android:layout_marginRight="90dp"
+            android:layout_alignBaseline="@id/package_number"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@id/package_width"
+            android:id="@+id/package_weight"
+            android:text="@string/weight"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

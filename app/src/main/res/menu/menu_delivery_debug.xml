@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="no.mesan.handterminator.RouteListActivity">
+
+    <item android:id="@+id/action_done_scanning"
+        android:title="@string/scan_all_kolli"
+        android:orderInCategory="95"
+        app:showAsAction="always" />
+    <item android:id="@+id/deviation_action"
+        android:title="@string/action_exception"
+        android:icon="@drawable/ic_action_exception"
+        android:orderInCategory="98"
+        app:showAsAction="always"/>
+    <item android:id="@+id/action_manual_scan"
+        android:title="@string/manual_kolli_input"
+        android:orderInCategory="99"
+        android:icon="@drawable/ic_action_manual_input"
+        app:showAsAction="always" />
+    <item android:id="@+id/action_no_signature"
+        android:title="@string/action_no_signature"
+        android:icon="@drawable/ic_deliver_signed"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
+
+</menu>

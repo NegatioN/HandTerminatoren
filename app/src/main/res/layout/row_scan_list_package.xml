@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    android:paddingLeft="4dp"
+    android:background="@color/softAccent">
+
+    <TextView
+        android:id="@+id/kollinr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="8dp"
+        android:textSize="@dimen/scanning_kolli_size"
+        android:text="@string/field_package_num_short" />
+
+    <TextView
+        android:id="@+id/scanListPackageTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/scanning_kolli_size"
+        android:layout_toRightOf="@id/kollinr" />
+
+    <ImageView
+        android:id="@+id/scanListCheck"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_check"
+        android:tint="@color/primary"
+        android:visibility="invisible" />
+</RelativeLayout>

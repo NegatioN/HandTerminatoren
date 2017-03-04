@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/map_fragment_placeholder"
+        android:layout_width="850dp"
+        android:layout_height="match_parent"
+        android:transitionName="leftTrans"
+        android:layout_marginLeft="-850dp"/>
+
+    <!-- The list which is "stuck" on this screen, on the left side -->
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_scan_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:layout_margin="@dimen/fragment_frame_space"
+        card_view:contentPadding="4dp"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardBackgroundColor="@color/superWhite"
+        android:transitionName="midTrans">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerScanList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"/>
+
+    </android.support.v7.widget.CardView>
+
+    <!-- FrameLayout(as a CardView),
+          this is where you change between fragments-->
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_scanner"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:layout_marginTop="@dimen/fragment_frame_space"
+        android:layout_marginBottom="@dimen/fragment_frame_space"
+        android:layout_marginEnd="@dimen/fragment_frame_space"
+        android:layout_marginStart="0dp"
+        card_view:contentPadding="4dp"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardBackgroundColor="@color/backgroundWhite"
+        android:transitionName="rightTrans">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/camera_frame"
+            android:background="@drawable/img_camera_bg_1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/toLayout">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/camera_layout"></FrameLayout>
+
+                <View
+                    android:id="@+id/ripple"
+                    android:visibility="invisible"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@color/primary"
+                    android:layout_alignParentTop="true"/>
+
+                <ImageButton
+                    android:id="@+id/cancel_camera_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/background_oval"
+                    android:layout_margin="@dimen/add_button_margin"
+                    android:elevation="@dimen/shadow_lv2"
+                    android:tint="@color/white"
+                    android:src="@drawable/ic_cancel_white_48dp"
+                    android:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/cameraButton"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_camera_alt_white_48dp"
+                    android:layout_width="@dimen/round_button_diameter"
+                    android:layout_height="@dimen/round_button_diameter"
+                    android:tint="@color/white"
+                    android:visibility="visible"
+                    android:elevation="@dimen/shadow_lv2"
+                    android:background="@drawable/ripple_oval"
+                    android:layout_marginEnd="@dimen/add_button_margin"
+                    android:layout_marginBottom="@dimen/add_button_margin"
+                    android:transitionName="buttonTrans"
+                    />
+
+                <no.mesan.handterminator.view.ProgressWheel
+                    android:layout_width="104dp"
+                    android:layout_height="104dp"
+                    android:id="@+id/progress_wheel_scanning"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:visibility="visible"/>
+
+                </RelativeLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

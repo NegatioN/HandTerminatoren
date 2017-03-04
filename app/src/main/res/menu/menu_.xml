@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="no.mesan.handterminator.RouteListFragmentActivity">
+
+    <item
+        android:id="@+id/action_center_map"
+        android:title="Sentrer kart"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
+
+</menu>

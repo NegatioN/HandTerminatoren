@@ -1,0 +1,315 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:clickable="true"
+    android:onClick="clickBack"
+    tools:context="no.mesan.handterminator.EmergencyActivity_">
+
+    <!-- Framlayout for holding Object-fragments -->
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="900dp"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/fragment_frame_space"
+        android:layout_marginRight="@dimen/fragment_frame_space"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:elevation="15dp"
+        android:theme="@style/AppTheme"
+        android:transitionName="emergency"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardElevation="15dp">
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/superWhite"
+            android:clickable="true">
+
+            <include
+                android:id="@+id/emergency_toolbar"
+                layout="@layout/toolbar_emergency"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"></include>
+
+            <LinearLayout
+                android:id="@+id/divider"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/emergency_toolbar"
+                android:background="@color/white"
+                android:orientation="horizontal"></LinearLayout>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/emergency_card"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                card_view:cardBackgroundColor="@color/superWhite"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="@dimen/elevation_card">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:padding="10dp"
+                    card_view:cardBackgroundColor="@color/superWhite"
+                    card_view:cardCornerRadius="4dp">
+
+                    <RelativeLayout
+                        android:id="@+id/transfer_frame"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/header_emergency_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/marginHead"
+                            android:textSize="@dimen/head_size" />
+
+                        <Button
+                            android:id="@+id/choose_driver_open"
+                            style="@style/AdhocButton"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@id/header_emergency_info"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginBottom="-10dp"
+                            android:background="@drawable/background_more_tinted"
+                            android:text="Finn sjåfør" />
+
+                        <TextView
+                            android:id="@+id/chosen_driver"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@id/header_emergency_info"
+                            android:layout_alignParentRight="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/head_size"
+                            android:visibility="invisible" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/chose_driver_layout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/transfer_frame">
+
+                        <include
+                            android:id="@+id/driver_list_header"
+                            layout="@layout/driver_header"
+                            android:layout_width="800dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp" />
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/driver_list"
+                            android:layout_width="800dp"
+                            android:layout_height="135dp"
+                            android:layout_below="@id/driver_list_header"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="start"
+                            android:background="@color/superWhite" />
+
+                        <Button
+                            android:id="@+id/choose_driver"
+                            style="@style/AdhocButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/driver_list"
+                            android:layout_marginRight="5dp"
+                            android:text="Velg sjåfør" />
+
+                        <Button
+                            android:id="@+id/call_driver"
+                            style="@style/AdhocButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/driver_list"
+                            android:layout_marginRight="10dp"
+                            android:layout_toLeftOf="@id/choose_driver"
+                            android:text="Ring" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/deviation_frame"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/header_deviation"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/marginHead"
+                            android:text="@string/deviation_for_all"
+                            android:textSize="@dimen/head_size" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/emergency_info_card"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@id/emergency_card"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                card_view:cardBackgroundColor="@color/superWhite"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="@dimen/elevation_card">
+
+                <RelativeLayout
+                    android:id="@+id/transfer_frame_2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/transfer_image"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginBottom="50dp">
+
+                        <TextView
+                            android:id="@+id/transfer_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="100dp"
+                            android:text="@string/choose_driver_status"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/big_head" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/transfer_status">
+
+                            <ImageView
+                                android:id="@+id/transfer_image_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="80dp"
+                                android:src="@drawable/ic_transfer_profile_colored" />
+
+                            <ImageView
+                                android:id="@+id/animation_package"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_centerVertical="true"
+                                android:layout_toRightOf="@id/transfer_image_1"
+                                android:src="@drawable/package_box"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="80dp"
+                                android:src="@drawable/ic_transfer_profile_colored" />
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/transfer_button"
+                        style="@style/AdhocButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_below="@id/transfer_image"
+                        android:layout_centerHorizontal="true"
+                        android:visibility="gone"
+                        android:paddingTop="200dp"
+                        android:text="@string/transfer" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/deviation_frame_2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="invisible">
+
+                    <RelativeLayout
+                        android:id="@+id/deviation_comment_field"
+                        android:layout_width="fill_parent"
+                        android:layout_height="300dp"
+                        android:layout_centerHorizontal="true"
+                        android:paddingTop="30dp">
+
+                        <TextView
+                            android:id="@+id/deviation_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:layout_marginTop="30dp"
+                            android:text="@string/write_comment"
+                            android:textColor="@color/primary"
+                            android:textSize="@dimen/head_size" />
+
+                        <EditText
+                            android:id="@+id/deviation_comment"
+                            android:layout_width="580dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@id/deviation_text"
+                            android:layout_gravity="start"
+                            android:layout_marginLeft="50dp"
+                            android:layout_toRightOf="@id/deviation_text"
+                            android:background="@drawable/background_border"
+                            android:ems="10"
+                            android:gravity="top|left"
+                            android:hint="@string/placeholder"
+                            android:inputType="textMultiLine"
+                            android:lines="9"
+                            android:maxLength="180"
+                            android:maxLines="12"
+                            android:paddingStart="@dimen/marginEnd"
+                            android:textSize="@dimen/subhead_size" />
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/rapport_button"
+                        style="@style/AdhocButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_below="@id/deviation_comment_field"
+                        android:layout_centerHorizontal="true"
+                        android:paddingTop="30dp"
+                        android:text="@string/report_deviation" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

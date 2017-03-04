@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Define tint in xml for icon -->
+    <item
+        android:id="@+id/action_transfer_package"
+        android:icon="@drawable/ic_transfer_package_tinted"
+        android:orderInCategory="100"
+        android:title="@string/action_add_package"
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/action_rapport_damage"
+        android:icon="@drawable/ic_rapport_damage_tinted"
+        android:orderInCategory="100"
+        android:title="@string/action_add_package"
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/action_exit_fragment"
+        android:icon="@drawable/ic_delete_tinted"
+        android:orderInCategory="100"
+        android:title="@string/exit_card"
+        app:showAsAction="always"></item>
+
+</menu>

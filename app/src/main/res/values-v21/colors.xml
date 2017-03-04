@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primary">#0099BA</color><!--old color #007593-->
+    <color name="primary_dark">#033F63</color>
+    <color name="primary_light">#770099BA</color><!--old color #007593-->
+    <color name="accent">#C94277</color>
+    <color name="accent_ripple">#40222222</color>
+    <color name="white">#E8EDDF</color>
+    <color name="superWhite">#FFFFFF</color>
+    <color name="superWhite_transparent">#CCFFFFFF</color>C
+    <color name="superWhite_lighttransparent">#EEFFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="black_transparent">#80000000</color>
+    <color name="background_fade">#40000000</color>
+    <color name="grey_light">#878787</color>
+    <color name="grey_dark">#444444</color>
+    <color name="transparentGrey">#99000000</color>
+    <color name="titleGrey">#676767</color>
+    <color name="backgroundWhite">#F6F6F6</color>
+
+    <color name="softGrey">#DDDDDDDD</color>
+
+    <color name="acceptGreen">#009900</color>
+    <color name="primarysupport">#00D137</color>
+    <color name="scannedGreen">#7700AA00</color>
+    <color name="lightGreen">#7772ff71</color>
+
+    <color name="softAccent">#330099BA</color>
+    <color name="softBackground">#220099BA</color>
+    <color name="alertRed">#CC2020</color>
+    <color name="complement">#FF7F00</color>
+    <color name="primaryaccent">#002AC5</color>
+    <color name="pieChartBlue">#87BCDE</color>
+    <color name="pieChartGreen">#72BDA3</color>
+    <color name="pieChartYellow">#FFF275</color>
+    <color name="cardBackground">#fff1f1f1</color>
+</resources>

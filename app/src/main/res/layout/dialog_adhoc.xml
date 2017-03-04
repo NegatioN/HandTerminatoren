@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_adhoc"
+    android:padding="5dp"
+    android:visibility="invisible">
+
+    <!--Alert-->
+    <RelativeLayout
+        android:id="@+id/adhoc_alert"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--Text-->
+        <RelativeLayout
+            android:id="@+id/adhoc_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="15dp">
+
+            <ImageView
+                android:id="@+id/adhoc_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:alpha="0.9"
+                android:src="@drawable/ic_emergency"
+                android:tint="@color/alertRed" />
+
+            <TextView
+                android:id="@+id/adhoc_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/adhoc_icon"
+                android:text="Ny henting!"
+                android:textColor="@color/alertRed"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/adhoc_message"
+                style="@style/TitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/adhoc_title"
+                android:text="@string/placeholder" />
+
+        </RelativeLayout>
+
+        <!--Buttons-->
+        <RelativeLayout
+            android:id="@+id/adhoc_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="bottom"
+            android:paddingBottom="7dp"
+            android:paddingRight="10dp">
+
+            <Button
+                android:id="@+id/btn_adhoc_accept"
+                style="@style/AdhocButton"
+                android:onClick="acceptAdhoc"
+                android:text="Godta" />
+
+            <Button
+                android:id="@+id/btn_adhoc_decline"
+                style="@style/AdhocButton"
+                android:layout_toRightOf="@id/btn_adhoc_accept"
+                android:onClick="declineAdhoc"
+                android:text="Lukk" />
+
+            <Button
+                android:id="@+id/btn_adhoc_info"
+                style="@style/AdhocButton"
+                android:layout_toRightOf="@id/btn_adhoc_decline"
+                android:onClick="infoAdhoc"
+                android:text="Info" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!--Info / Expand-->
+    <RelativeLayout
+        android:id="@+id/adhoc_info"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:visibility="gone">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingRight="70dp">
+
+            <!--Title column-->
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="15dp">
+
+                <ImageView
+                    android:id="@+id/taskIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/ic_pickup" />
+
+                <TextView
+                    android:id="@+id/taskText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/taskIcon"
+                    android:text="Mesan"
+                    android:textAppearance="@style/TitleStyle"
+                    android:textSize="25sp" />
+
+
+            </RelativeLayout>
+
+            <!--Info column 1-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingRight="15dp">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/field_address"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/taskAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="68dp"
+                        android:text="@string/placeholder" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/field_post_number"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/taskZip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="68dp"
+                        android:text="@string/placeholder" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/field_sender"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/taskSender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="68dp"
+                        android:text="@string/placeholder" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--Info column 2-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingRight="15dp">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/field_packages"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/taskPackages"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="68dp"
+                        android:text="@string/placeholder" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/field_time_frame"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/taskTimeFrame"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="68dp"
+                        android:text="@string/placeholder" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/field_timeslot"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/taskExtra"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="68dp"
+                        android:text="@string/placeholder" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--Buttons-->
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="bottom"
+            android:paddingBottom="7dp"
+            android:paddingRight="10dp">
+
+            <Button
+                android:id="@+id/btn_adhoc_back"
+                style="@style/AdhocButton"
+                android:onClick="infoAdhoc"
+                android:text="Tilbake" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

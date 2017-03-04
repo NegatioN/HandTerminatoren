@@ -1,0 +1,42 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Material">
+        <!-- Customize your theme here. -->
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowContentTransitions">true</item>
+
+    </style>
+
+    <style name="Theme.AppCompat.Translucent">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/transparentGrey</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="TitleStyle">
+        <item name="android:textSize">@dimen/abc_text_size_large_material</item>
+        <item name="android:textColor">@color/titleGrey</item>
+    </style>
+
+    <style name="AdhocButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:padding">3dp</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:background">@drawable/ripple_transparent</item>
+        <item name="android:textColor">@color/primary</item>
+        <!--<item name="android:elevation">@dimen/shadow_lv2</item>-->
+    </style>
+
+    <style name="PackageStyle">
+
+
+    </style>
+
+</resources>

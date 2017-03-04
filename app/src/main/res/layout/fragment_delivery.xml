@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="hideKeyboard">
+
+        <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_map_placeholder"
+            android:layout_width="850dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="@dimen/fragment_frame_space"
+            android:layout_marginLeft="-850dp"
+            android:layout_marginRight="@dimen/fragment_frame_space"
+            android:layout_marginTop="@dimen/fragment_frame_space"
+            android:transitionName="leftTrans"
+            card_view:cardBackgroundColor="@color/backgroundWhite"
+            card_view:cardCornerRadius="4dp"
+            card_view:contentPadding="4dp">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+        </android.support.v7.widget.CardView>
+
+        <!-- FrameLayout(as a CardView),
+              this is where you change between fragments-->
+        <RelativeLayout
+            android:id="@+id/delivery_scanner"
+            android:layout_width="850dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/fragment_frame_space"
+            android:layout_alignParentRight="true">
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_delivery_scanner"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true"
+                android:transitionName="rightTrans"
+                card_view:cardBackgroundColor="@color/backgroundWhite"
+                card_view:cardCornerRadius="4dp"
+                card_view:contentPadding="4dp">
+
+                <RelativeLayout
+                    android:id="@+id/toLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/img_camera_bg_1">
+
+                    <FrameLayout
+                        android:id="@+id/camera_layout_delivery"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"></FrameLayout>
+
+                    <ImageButton
+                        android:id="@+id/clear_signature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="@dimen/add_button_margin"
+                        android:background="@drawable/background_oval"
+                        android:elevation="@dimen/shadow_lv2"
+                        android:src="@drawable/ic_erase_100dp"
+                        android:tint="@color/grey_light"
+                        android:visibility="invisible" />
+
+                    <View
+                        android:id="@+id/ripple"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentTop="true"
+                        android:background="@color/primary"
+                        android:visibility="invisible" />
+
+                    <ImageButton
+                        android:id="@+id/cancel_camera_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="@dimen/add_button_margin"
+                        android:background="@drawable/background_oval"
+                        android:elevation="@dimen/shadow_lv2"
+                        android:src="@drawable/ic_cancel_white_48dp"
+                        android:tint="@color/white"
+                        android:visibility="invisible" />
+
+                    <ImageButton
+                        android:id="@+id/continueButton"
+                        android:layout_width="@dimen/round_button_diameter"
+                        android:layout_height="@dimen/round_button_diameter"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="@dimen/add_button_margin"
+                        android:layout_marginEnd="@dimen/add_button_margin"
+                        android:background="@drawable/ripple_oval"
+                        android:elevation="@dimen/shadow_lv2"
+                        android:src="@drawable/ic_camera_alt_white_48dp"
+                        android:tint="@color/white"
+                        android:transitionName="buttonTrans" />
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+        </RelativeLayout>
+
+    <!-- The list which is "stuck" on this screen, on the left side -->
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_delivery_list"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/fragment_frame_space"
+        android:layout_marginTop="@dimen/fragment_frame_space"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_weight="0.3"
+        android:layout_toLeftOf="@id/delivery_scanner"
+        android:layout_margin="@dimen/fragment_frame_space"
+        android:transitionName="midTrans"
+        card_view:cardBackgroundColor="@color/backgroundWhite"
+        card_view:cardCornerRadius="4dp"
+        card_view:contentPadding="4dp">
+
+        <LinearLayout
+            android:id="@+id/delivery_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:alpha="0"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_delivery_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                card_view:cardBackgroundColor="@color/superWhite"
+                card_view:cardCornerRadius="4dp"
+                card_view:contentPadding="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/marginStart"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/delivery_head"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/delivery_header"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="@dimen/marginEnd"
+                            android:text="@string/field_delivery"
+                            android:textColor="@color/primary"
+                            android:textSize="@dimen/big_head" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/delivery_head"
+                        android:layout_marginEnd="@dimen/marginEnd"
+                        android:layout_marginStart="@dimen/marginEnd"
+                        android:layout_marginTop="@dimen/marginHead">
+
+                        <!-- Id field -->
+                        <TextView
+                            android:id="@+id/delivery_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="8dp"
+                            android:paddingTop="5dp"
+                            android:text="@string/field_delivery_id"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/subhead_size" />
+
+                        <TextView
+                            android:id="@+id/delivery_id_field"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@id/delivery_id"
+                            android:layout_alignParentEnd="true"
+                            android:paddingTop="5dp"
+                            android:text="@string/placeholder"
+                            android:textSize="@dimen/subhead_size" />
+                        <!-- Receiver field -->
+                        <TextView
+                            android:id="@+id/delivery_receiver"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/delivery_id"
+                            android:paddingRight="8dp"
+                            android:paddingTop="5dp"
+                            android:text="@string/field_receiver"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/subhead_size" />
+
+                        <TextView
+                            android:id="@+id/delivery_receiver_field"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@id/delivery_receiver"
+                            android:layout_alignParentEnd="true"
+                            android:paddingTop="5dp"
+                            android:text="@string/placeholder"
+                            android:textSize="@dimen/subhead_size" />
+                        <!-- Address field -->
+                        <TextView
+                            android:id="@+id/delivery_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/delivery_receiver"
+                            android:paddingRight="8dp"
+                            android:paddingTop="5dp"
+                            android:text="@string/field_address"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/subhead_size" />
+
+                        <TextView
+                            android:id="@+id/delivery_address_field"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@id/delivery_address"
+                            android:layout_alignParentEnd="true"
+                            android:paddingTop="5dp"
+                            android:text="@string/placeholder"
+                            android:textSize="@dimen/subhead_size" />
+                        <!-- Package field -->
+                        <TextView
+                            android:id="@+id/delivery_package"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/delivery_address"
+                            android:paddingRight="8dp"
+                            android:paddingTop="5dp"
+                            android:text="@string/field_number_of_packages"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/subhead_size" />
+
+                        <TextView
+                            android:id="@+id/delivery_package_field"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBaseline="@id/delivery_package"
+                            android:layout_alignParentRight="true"
+                            android:paddingTop="5dp"
+                            android:text="@string/placeholder"
+                            android:textSize="@dimen/subhead_size" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_delivery_package_list"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="3dp"
+                card_view:cardBackgroundColor="@color/superWhite"
+                card_view:cardCornerRadius="4dp"
+                card_view:contentPadding="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/package_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="@dimen/marginEnd"
+                        android:text="@string/delivery_packages"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/big_head" />
+
+
+                    <TextView
+                        android:id="@+id/delivery_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBaseline="@id/package_number"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/marginEnd"
+                        android:textColor="@color/primary"
+                        android:textSize="@dimen/big_head" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recyclerDelivery"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_below="@id/package_number"
+                        android:background="@android:color/white" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

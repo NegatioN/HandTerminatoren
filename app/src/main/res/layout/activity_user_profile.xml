@@ -1,0 +1,329 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:onClick="clickBack"
+    android:background="@android:color/transparent"
+    tools:context="no.mesan.handterminator.UserProfileActivity_">
+
+    <!-- Framlayout for holding Object-fragments -->
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="900dp"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="@dimen/fragment_frame_space"
+        android:layout_marginRight="@dimen/fragment_frame_space"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:elevation="15dp"
+        android:transitionName="profile"
+        card_view:cardCornerRadius="2dp"
+        card_view:cardElevation="15dp"
+        android:theme="@style/AppTheme">
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/superWhite">
+
+            <include
+                android:id="@+id/profile_toolbar"
+                layout="@layout/toolbar_profile"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"></include>
+
+            <LinearLayout
+                android:id="@+id/divider"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/profile_toolbar"
+                android:background="@color/white"
+                android:orientation="horizontal"></LinearLayout>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_card"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:padding="10dp"
+                card_view:cardBackgroundColor="@color/superWhite"
+                card_view:cardElevation="@dimen/elevation_card"
+                card_view:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider"
+                    android:layout_margin="10dp"
+                    android:padding="10dp"
+                    android:clickable="true"
+                    card_view:cardCornerRadius="4dp"
+                    card_view:cardBackgroundColor="@color/superWhite">
+
+                    <LinearLayout
+                        android:id="@+id/task_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/header_task_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/marginHead"
+                            android:text="Profil"
+                            android:textColor="@color/primary"
+                            android:textSize="@dimen/head_size" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/marginEnd"
+                            android:layout_marginStart="@dimen/big_card_marginStart"
+                            android:orientation="vertical">
+
+                            <!-- Username field -->
+                            <TextView
+                                android:id="@+id/profile_username"
+                                android:layout_width="@dimen/big_card_tv_width"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:text="Brukernavn: "
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/subhead_size" />
+
+                            <TextView
+                                android:id="@+id/profile_username_field"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBaseline="@id/profile_username"
+                                android:layout_toRightOf="@id/profile_username"
+                                android:paddingTop="5dp"
+                                android:text="@string/placeholder" />
+
+                            <!-- Position field -->
+                            <TextView
+                                android:id="@+id/profile_position"
+                                android:layout_width="@dimen/big_card_tv_width"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/profile_username"
+                                android:paddingTop="5dp"
+                                android:text="Stilling: "
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/subhead_size" />
+
+                            <TextView
+                                android:id="@+id/profile_position_field"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBaseline="@id/profile_position"
+                                android:layout_toRightOf="@id/profile_position"
+                                android:paddingTop="5dp"
+                                android:text="@string/placeholder" />
+
+                            <!-- Licence field -->
+                            <TextView
+                                android:id="@+id/profile_licence"
+                                android:layout_width="@dimen/big_card_tv_width"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/profile_position"
+                                android:paddingTop="5dp"
+                                android:text="Førerkort: "
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/subhead_size" />
+
+                            <TextView
+                                android:id="@+id/profile_licence_field"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBaseline="@id/profile_licence"
+                                android:layout_toRightOf="@id/profile_licence"
+                                android:paddingTop="5dp"
+                                android:text="@string/placeholder" />
+
+                            <!-- Address field-->
+                            <TextView
+                                android:id="@+id/profile_address"
+                                android:layout_width="@dimen/big_card_tv_width"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/profile_licence"
+                                android:paddingTop="5dp"
+                                android:text="Adresse: "
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/subhead_size" />
+
+                            <TextView
+                                android:id="@+id/profile_address_field"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBaseline="@id/profile_address"
+                                android:layout_toRightOf="@id/profile_address"
+                                android:paddingTop="5dp"
+                                android:text="@string/placeholder" />
+
+                            <!-- Phone field-->
+                            <TextView
+                                android:id="@+id/profile_phone"
+                                android:layout_width="@dimen/big_card_tv_width"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/profile_address"
+                                android:paddingTop="5dp"
+                                android:text="Telefon: "
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/subhead_size" />
+
+                            <TextView
+                                android:id="@+id/profile_phone_field"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBaseline="@id/profile_phone"
+                                android:layout_toRightOf="@id/profile_phone"
+                                android:paddingTop="5dp"
+                                android:text="@string/placeholder" />
+
+                            <!-- Stat 1 field-->
+                            <TextView
+                                android:id="@+id/profile_total_salary"
+                                android:layout_width="@dimen/big_card_tv_width"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/profile_phone"
+                                android:paddingTop="5dp"
+                                android:text="@string/field_salary"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/subhead_size" />
+
+                            <TextView
+                                android:id="@+id/profile_total_salary_stat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBaseline="@id/profile_total_salary"
+                                android:layout_toRightOf="@id/profile_total_salary"
+                                android:paddingTop="5dp"
+                                android:text="@string/placeholder" />
+
+                            <!--State 2 field-->
+                            <TextView
+                                android:id="@+id/profile_total_driven"
+                                android:layout_width="@dimen/big_card_tv_width"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/profile_total_salary"
+                                android:paddingTop="5dp"
+                                android:text="@string/field_driven"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/subhead_size" />
+
+                            <TextView
+                                android:id="@+id/profile_total_driven_stat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBaseline="@id/profile_total_driven"
+                                android:layout_toRightOf="@id/profile_total_salary"
+                                android:paddingTop="5dp"
+                                android:text="@string/placeholder" />
+
+                            <!--State 3 field-->
+                            <TextView
+                                android:id="@+id/profile_total_time"
+                                android:layout_width="@dimen/big_card_tv_width"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/profile_total_driven"
+                                android:paddingTop="5dp"
+                                android:text="@string/field_profile_time"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/subhead_size" />
+
+                            <TextView
+                                android:id="@+id/profile_total_time_stat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBaseline="@id/profile_total_time"
+                                android:layout_toRightOf="@id/profile_total_driven"
+                                android:paddingTop="5dp"
+                                android:text="@string/placeholder" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="200dp"
+                        android:layout_height="220dp"
+                        android:id="@+id/profile_picture"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/big_card_marginStart">
+
+                        <ImageView
+                            android:id="@+id/ic_profile"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/ripple_oval_white"
+                            android:clickable="true"
+                            android:src="@drawable/img_tore_tang" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/package_card"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@id/profile_card"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingTop="10dp"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="@dimen/elevation_card"
+                card_view:cardBackgroundColor="@color/superWhite">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/pieChart_wage"
+                        android:layout_width="280dp"
+                        android:layout_height="280dp"
+                        android:layout_marginTop="10dp" />
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="right">
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/lineChart_wage"
+                            android:layout_width="550dp"
+                            android:layout_height="300dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_margin="10dp"
+                            android:layout_marginRight="50dp"/>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        card_view:cardCornerRadius="4dp">
+
+        <RelativeLayout
+            android:id="@+id/route_row_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/routeIcon"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_alignParentLeft="true"
+                android:paddingBottom="8dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="11dp"
+                android:paddingTop="8dp"
+                android:tint="@color/primary_dark"
+                 />
+            <!--android:src="@drawable/ic_sun" icon for daytime-->
+
+            <TextView
+                android:id="@+id/routeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/routeIcon"
+                android:text="@string/placeholder"
+                android:textAppearance="@style/TitleStyle" />
+
+
+
+            <ImageView
+                android:id="@+id/pickupIcon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_pickup"/>
+
+            <TextView
+                android:id="@+id/pickupCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/pickupIcon"
+                android:layout_centerVertical="true"
+                android:text="@string/placeholder"
+                android:textAppearance="@style/TitleStyle" />
+
+            <ImageView
+                android:id="@+id/deliverIcon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/pickupCount"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_delivery" />
+
+            <TextView
+                android:id="@+id/deliverCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/deliverIcon"
+                android:layout_centerVertical="true"
+                android:text="@string/placeholder"
+                android:textAppearance="@style/TitleStyle" />
+
+            />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

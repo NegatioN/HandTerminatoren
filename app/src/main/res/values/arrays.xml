@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="drawertitles">
+        <item>Header</item>
+        <item>#Yolo</item>
+        <item>It\'s good to be a drawer</item>
+        <item>Why so drawer?</item>
+    </string-array>
+    <string-array name="calltitles">
+        <item>Sender</item>
+        <item>Mottaker</item>
+    </string-array>
+    <string-array name="deviations">
+        <item>Mistet pakke</item>
+        <item>Vannskade</item>
+        <item>Mottaker ikke tilstede</item>
+        <item>Feil i adresse</item>
+        <item>Ikke varemottak i dag</item>
+    </string-array>
+</resources>
